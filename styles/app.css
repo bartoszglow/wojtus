@@ -269,3 +269,12 @@ bt {
 .correct {
 	border: 2px solid green;
 }
+
+.btn-xs {
+	padding-top: 2px;
+	border-radius: 10px;
+}
+
+.glyphicon {
+	font-size: 24px;
+}
