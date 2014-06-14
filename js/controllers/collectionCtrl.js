@@ -45,7 +45,12 @@ app.controller('collectionCtrl', function ($scope) {
 				"name"		: "Wojciech",
 				"subname"	: "Kalpmoc",
 				"mail"		: "wojciech@kalpmoc.pl",
-				"phone"		: "0700"
+				"phone"		: "0700",
+				"date"		: {
+					"d"		: 13,
+					"m"		: 6,
+					"y"		: 2014
+				}
 			}
 		},
 		{
@@ -57,7 +62,12 @@ app.controller('collectionCtrl', function ($scope) {
 				"name"		: "Wojciech",
 				"subname"	: "Kalpmoc",
 				"mail"		: "wojciech@kalpmoc.pl",
-				"phone"		: "0700"
+				"phone"		: "0700",
+				"date"		: {
+					"d"		: 4,
+					"m"		: 6,
+					"y"		: 2014
+				}
 			}
 		},
 		{
@@ -76,7 +86,12 @@ app.controller('collectionCtrl', function ($scope) {
 				"name"		: "Wojciech",
 				"subname"	: "Kalpmoc",
 				"mail"		: "wojciech@kalpmoc.pl",
-				"phone"		: "0700"
+				"phone"		: "0700",
+				"date"		: {
+					"d"		: 1,
+					"m"		: 1,
+					"y"		: 2001
+				}
 			}
 		},
 	];
@@ -119,6 +134,11 @@ app.controller('collectionCtrl', function ($scope) {
 					if($scope.thief.phone) {
 						$scope.borrow = 0;
 						$scope.collection[index].borrowed = true;
+    					var curr_date = new Date();
+    					$scope.thief.date = {};
+						$scope.thief.date.d = curr_date.getDate();
+						$scope.thief.date.m = curr_date.getMonth();
+						$scope.thief.date.y = curr_date.getFullYear();
 						$scope.collection[index].thief = angular.copy($scope.thief);
 					}
 				}
