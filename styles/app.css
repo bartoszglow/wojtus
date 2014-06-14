@@ -240,3 +240,24 @@ bt {
 	font-size: 40px;
 	color: #1abc9c;
 }
+
+
+
+
+
+/*/////////////////////////////////////////////////////////////////////////////////////////////////*/
+.edditing {
+	background-color: #bdc3c7;
+	border-radius: 20px;
+}
+
+.ccc {
+	position: relative;
+}
+
+.borrowWindow {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: red;
+}

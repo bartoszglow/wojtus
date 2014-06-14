@@ -3,25 +3,97 @@
 <div id="ww">
     <div class="container">
 		<div class="row">
-			<div class="col-lg-8 col-lg-offset-2 centered">
+			<div class="col-lg-10 col-lg-offset-1 centered">
 
 				<h1>Your collection</h1>
 
-				<table class="table table-striped">
+				<table class="table">
 				    <thead>
 				        <tr>
-				            <th>Type</th>
-				            <th>Name</th>
-				            <th>borrowed</th>
-				            <th>Options</th>
+				            <th class="col-md-3 centered" ng-repeat="prop in properties">{{prop}}</th>
 				        </tr>
 				    </thead>
-				    <tbody>
-				        <tr ng-repeat="item in collection">
+				    <tbody ng-repeat="item in collection" ng-class="isChosen($index) == true ? 'edditing' : ''">
+
+						<!-- IF ITEM IS NOT EDDITING -->
+				        <tr ng-show="!isEditing($index)" ng-click="clickChoose($index)">
 				            <td>{{item.type}}</td>
 				            <td>{{item.name}}</td>
+				            <td>{{item.author}}</td>
 				            <td>{{item.borrowed}}</td>
+						</tr>
+
+						<!-- IF ITEM IS EDDITING -->
+				        <tr ng-show="isEditing($index)">
+				            <td><select class="form-control" ng-model="item.type" ng-options="item.type for type in types"></select></td>
+				            <td><input  class="form-control" ng-model="item.name" type="text"></td>
+				            <td><input  class="form-control" ng-model="item.author" type="text"></td>
 				            <td>{{item.borrowed}}</td>
+						</tr>
+
+						<!-- IF ITEM IS BORROWED SHOW THIEF -->
+				        <tr ng-show="isChosen($index) && item.borrowed">
+				            <td colspan="4">
+				            	{{item.thief.name}}
+				            	{{item.thief.subname}} <br>
+				            	{{item.thief.mail}} <br>
+				            	{{item.thief.phone}}
+				            </td>
+						</tr>
+
+						<!-- SETTING THIEF -->
+					    <tr ng-show="isChosen($index) && !item.borrowed && borrow">
+					      	<form>
+						        <td></td>
+						        <td colspan="2">
+						          	Name: 	<input required class="form-control" ng-model="thief.name" 		type="text"><br>
+						            Subname:<input required class="form-control" ng-model="thief.subname" 	type="text"><br>
+							        Mail:	<input required class="form-control" ng-model="thief.mail" 		type="email"><br>
+							        Phone:	<input required class="form-control" ng-model="thief.phone" 	type="text"><br>
+
+							        <button class="btn btn-default btn-xs"
+							          		ng-click="clickAccept($index)" 
+							          		ng-show="borrow">
+										<span class="glyphicon glyphicon-ok"></span>
+									</button>
+							        <button class="btn btn-default btn-xs"
+							           		ng-click="clickDoNotAccept()" 
+							           		ng-show="borrow">
+									  	<span class="glyphicon glyphicon-remove"></span>
+									</button>
+						        </td>
+						        <td></td>
+					        </form>
+						</tr>
+
+						<tr class="options" ng-show="isChosen($index) && !borrow">
+				            <td colspan="4">
+				            	<button class="btn btn-danger" 
+				            			ng-click="clickDelete($index)" 
+				            			ng-show="!borrow && !isEditing($index)">
+				            		Delete
+				            	</button>
+				            	<button class="btn btn-info" 
+				            			ng-click="clickBorrow($index)" 
+				            			ng-show="!borrow && !isEditing($index) && !item.borrowed">
+				            		Borrow
+				            	</button>
+				            	<button class="btn btn-success" 
+				            			ng-click="clickReturn($index)" 
+				            			ng-show="!borrow && !isEditing($index) && item.borrowed">
+				            		Return
+				            	</button>
+				            	<button class="btn btn-warning" 
+				            			ng-click="clickEditing($index)" 
+				            			ng-show="!borrow && !isEditing($index)">
+				            		Edit
+				            	</button>
+				            	<button class="btn btn-success" 
+				            			ng-click="clickEditing($index)" 
+				            			ng-show="!borrow && isEditing($index)">
+				            		Accept
+				            	</button>
+				            </td>
 						</tr>
 				    </tbody>
 				</table>
