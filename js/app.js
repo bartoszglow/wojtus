@@ -11,9 +11,9 @@ app.config(['$routeProvider', function ($routeProvider) {
                 controller: 'collectionCtrl',
                 templateUrl: 'views/collection.html'
             })
-        .when('/borrow',
+        .when('/options',
             {
-                templateUrl: 'views/borrow.html'
+                templateUrl: 'views/options.html'
             })
         .otherwise({ redirectTo: '/' });
 }]);
