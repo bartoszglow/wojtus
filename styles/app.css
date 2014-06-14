@@ -261,3 +261,11 @@ bt {
 	height: 100%;
 	background-color: red;
 }
+
+.wrong {
+	border: 2px solid red;
+}
+
+.correct {
+	border: 2px solid green;
+}

@@ -43,13 +43,37 @@
 
 						<!-- SETTING THIEF -->
 					    <tr ng-show="isChosen($index) && !item.borrowed && borrow">
-					      	<form>
-						        <td></td>
-						        <td colspan="2">
-						          	Name: 	<input required class="form-control" ng-model="thief.name" 		type="text"><br>
-						            Subname:<input required class="form-control" ng-model="thief.subname" 	type="text"><br>
-							        Mail:	<input required class="form-control" ng-model="thief.mail" 		type="email"><br>
-							        Phone:	<input required class="form-control" ng-model="thief.phone" 	type="text"><br>
+						    <td></td>
+						    <td colspan="2">
+					      		<form name="myForm">
+						          	Name: 	<input 	required 
+						          					name="name"
+						          					type="text"
+						          					class="form-control"
+						          					ng-model="thief.name" 
+						          					ng-class="myForm.name.$valid ? 'correct' : 'wrong'">
+						          			<br>
+						            Subname:<input 	required 
+						          					name="subname"
+						          					type="text"
+						            				class="form-control" 
+						            				ng-model="thief.subname"
+						          					ng-class="myForm.subname.$valid ? 'correct' : 'wrong'">
+						            		<br>
+							        Mail:	<input 	required  	
+						          					name="email"	
+							        				type="email"
+							        				class="form-control" 
+							        				ng-model="thief.mail"
+						          					ng-class="myForm.email.$valid ? 'correct' : 'wrong'">
+							        		<br>
+							        Phone:	<input 	required 
+						          					name="phone"	
+							        				type="text"
+							        				class="form-control" 
+							        				ng-model="thief.phone"
+						          					ng-class="myForm.phone.$valid ? 'correct' : 'wrong'">
+							        		<br>
 
 							        <button class="btn btn-default btn-xs"
 							          		ng-click="clickAccept($index)" 
@@ -61,9 +85,9 @@
 							           		ng-show="borrow">
 									  	<span class="glyphicon glyphicon-remove"></span>
 									</button>
-						        </td>
-						        <td></td>
-					        </form>
+					       		</form>
+						    </td>
+						    <td></td>
 						</tr>
 
 						<tr class="options" ng-show="isChosen($index) && !borrow">

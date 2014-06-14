@@ -3,6 +3,12 @@ app.controller('collectionCtrl', function ($scope) {
 	$scope.editing = -1;
 	$scope.borrow = 0;
 	$scope.thief = {};
+	$scope.parsing = {
+		"name" 		: false,
+		"subname" 	: false,
+		"mail"		: false,
+		"phone"		: false
+	}
 	$scope.properties = [
 		"Type",
 		"Name",
@@ -86,7 +92,6 @@ app.controller('collectionCtrl', function ($scope) {
 		$scope.editing = $scope.editing == index ? -1 : index;
 	};
 	$scope.isEditing = function(index) {
-		console.log($scope.editing);
 		return $scope.editing == index ? true : false;
 	};
 
@@ -102,18 +107,10 @@ app.controller('collectionCtrl', function ($scope) {
 		$scope.chosen = -1;
 	};
 	$scope.clickAccept = function(index) {
-		if(!$scope.thief.name) {
-			alert("Podaj imie");
-		} else {
-			if(!$scope.thief.subname) {
-				alert("Podaj nazwisko");
-			} else {
-				if(!$scope.thief.mail) {
-					alert("Podaj poprawny email");
-				} else {
-					if(!$scope.thief.phone) {
-						alert("Podaj telefon");
-					} else {
+		if($scope.thief.name) {
+			if($scope.thief.subname) {
+				if($scope.thief.mail) {
+					if($scope.thief.phone) {
 						$scope.borrow = 0;
 						$scope.collection[index].borrowed = true;
 						$scope.collection[index].thief = angular.copy($scope.thief);
@@ -126,4 +123,12 @@ app.controller('collectionCtrl', function ($scope) {
 		$scope.thief = {};
 		$scope.borrow = 0;
 	};
+	$scope.inputChange = function(word, what) {
+		$scope.parsing[what] = word ? true : false;
+	};
+
+	$scope.print = function(sth) {
+		console.log(sth);
+		console.log(myForm.mame.$valid);
+	}
 });
