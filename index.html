@@ -11,7 +11,7 @@
         <link href="styles/app.css" rel="stylesheet">
     </head>
 
-    <body>
+    <body ng-controller="mainCtrl as VAR">
         <div data-ng-view=""></div>
 
         <!-- External scripts -->
@@ -20,7 +20,8 @@
         <script src="bower_components/jquery/dist/jquery.min.js"></script>
         <!-- Custom scripts -->
         <script src="js/app.js"></script>
-        <script src="js/controllers/aboutCtrl.js"></script>
+        <script src="js/controllers/mainCtrl.js"></script>
+        <script src="js/controllers/collectionCtrl.js"></script>
 
     </body>
 </html>

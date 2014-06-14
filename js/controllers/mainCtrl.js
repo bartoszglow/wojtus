@@ -1,3 +1,3 @@
-app.controller('mainCtrl', function ($scope) {
-	$scope.name = "Wojtus";
+app.controller('mainCtrl', function () {
+	this.name = "Wojtuś";
 });

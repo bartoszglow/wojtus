@@ -1,0 +1,34 @@
+<div ng-include src="'views/templates/menu.html'"></div>
+
+<div id="ww">
+    <div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 centered">
+
+				<h1>Your collection</h1>
+
+				<table class="table table-striped">
+				    <thead>
+				        <tr>
+				            <th>Type</th>
+				            <th>Name</th>
+				            <th>borrowed</th>
+				            <th>Options</th>
+				        </tr>
+				    </thead>
+				    <tbody>
+				        <tr ng-repeat="item in collection">
+				            <td>{{item.type}}</td>
+				            <td>{{item.name}}</td>
+				            <td>{{item.borrowed}}</td>
+				            <td>{{item.borrowed}}</td>
+						</tr>
+				    </tbody>
+				</table>
+
+			</div><!-- /col-lg-8 -->
+		</div><!-- /row -->
+    </div> <!-- /container -->
+</div><!-- /ww -->
+
+<div ng-include src="'views/templates/footer.html'"></div>

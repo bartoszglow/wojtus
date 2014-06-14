@@ -4,8 +4,16 @@ app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
         .when('/',
             {
-                controller: 'aboutCtrl',
                 templateUrl: 'views/about.html'
+            })
+        .when('/collection',
+            {
+                controller: 'collectionCtrl',
+                templateUrl: 'views/collection.html'
+            })
+        .when('/borrow',
+            {
+                templateUrl: 'views/borrow.html'
             })
         .otherwise({ redirectTo: '/' });
 }]);
