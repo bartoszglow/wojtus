@@ -154,7 +154,7 @@ app.controller('collectionCtrl', function ($scope) {
 			type 		: "",
 			name 		: "",
 			author 		: "",
-			borrowed 	: "",
+			borrowed 	: false,
 			thief		: {}
 		});
 		$scope.adding = true;
