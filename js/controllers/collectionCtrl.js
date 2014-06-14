@@ -76,6 +76,7 @@ app.controller('collectionCtrl', function ($scope) {
 
 	$scope.clickChoose = function(index) {
 		$scope.chosen = $scope.chosen == index ? -1 : index;
+		$scope.borrow = 0;
 	};
 	$scope.isChosen = function(index) {
 		return $scope.chosen == index ? true : false;
