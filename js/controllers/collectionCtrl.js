@@ -2,6 +2,7 @@ app.controller('collectionCtrl', function ($scope) {
 	$scope.chosen = -1;
 	$scope.editing = -1;
 	$scope.borrow = 0;
+	$scope.adding = false;
 	$scope.thief = {};
 	$scope.parsing = {
 		"name" 		: false,
@@ -83,6 +84,11 @@ app.controller('collectionCtrl', function ($scope) {
 	$scope.clickChoose = function(index) {
 		$scope.chosen = $scope.chosen == index ? -1 : index;
 		$scope.borrow = 0;
+		if($scope.adding === true) {
+			$scope.adding = false;
+			$scope.collection.pop();
+		}
+		$scope.thief = {};
 	};
 	$scope.isChosen = function(index) {
 		return $scope.chosen == index ? true : false;
@@ -123,12 +129,24 @@ app.controller('collectionCtrl', function ($scope) {
 		$scope.thief = {};
 		$scope.borrow = 0;
 	};
-	$scope.inputChange = function(word, what) {
-		$scope.parsing[what] = word ? true : false;
+	$scope.clickAdd = function() {
+		$scope.collection.push({
+			type 		: "",
+			name 		: "",
+			author 		: "",
+			borrowed 	: "",
+			thief		: {}
+		});
+		$scope.adding = true;
+		$scope.clickEditing($scope.collection.length-1);
 	};
-
-	$scope.print = function(sth) {
-		console.log(sth);
-		console.log(myForm.mame.$valid);
-	}
+	$scope.clickAddAccept = function() {
+		$scope.adding = false;
+		$scope.editing = -1;
+	};
+	$scope.clickAddNoAccept = function() {
+		$scope.collection.pop();
+		$scope.editing = -1;
+		$scope.adding = false;
+	};
 });

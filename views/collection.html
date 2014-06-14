@@ -122,6 +122,21 @@
 				    </tbody>
 				</table>
 
+				<button class="btn btn-success" 
+						ng-click="clickAdd()" 
+						ng-show="!adding && chosen == -1">
+		       		Add new item
+				</button>
+				<button class="btn btn-default btn-xs" 
+						ng-click="clickAddAccept()" 
+						ng-show="adding">
+					<span class="glyphicon glyphicon-ok"></span>
+				</button>
+				<button class="btn btn-default btn-xs" 
+						ng-click="clickAddNoAccept()" 
+						ng-show="adding">
+					<span class="glyphicon glyphicon-remove"></span>
+				</button>
 			</div><!-- /col-lg-8 -->
 		</div><!-- /row -->
     </div> <!-- /container -->
