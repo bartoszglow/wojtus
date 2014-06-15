@@ -248,6 +248,7 @@ bt {
 /*/////////////////////////////////////////////////////////////////////////////////////////////////*/
 .edditing {
 	background-color: #bdc3c7;
+	-webkit-border-radius: 20px;
 	border-radius: 20px;
 }
 
@@ -263,11 +264,17 @@ bt {
 }
 
 .wrong {
-	border: 2px solid red;
+	border: 1px solid #e74c3c;
+	-moz-box-shadow: 0px 0px 3px #e74c3c;
+	-webkit-box-shadow: 0px 0px 3px #e74c3c;
+	box-shadow: 0px 0px 3px #e74c3c;
 }
 
 .correct {
-	border: 2px solid green;
+	border: 1px solid #16a085;
+	-moz-box-shadow: 0px 0px 3px #16a085;
+	-webkit-box-shadow: 0px 0px 3px #16a085;
+	box-shadow: 0px 0px 3px #16a085;
 }
 
 .btn-xs {
