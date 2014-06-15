@@ -104,6 +104,7 @@ app.controller('collectionCtrl', function ($scope) {
 	$scope.clickChoose = function(index) {
 		$scope.chosen = $scope.chosen == index ? -1 : index;
 		$scope.borrow = 0;
+		$scope.editing = -1;
 		if($scope.adding === true) {
 			$scope.adding = false;
 			$scope.collection.pop();
@@ -143,7 +144,7 @@ app.controller('collectionCtrl', function ($scope) {
     					$scope.thief.date_return = {};
 						$scope.borrow = 0;
 						$scope.collection[index].borrowed = true;
-						
+
 						$scope.thief.date.d = curr_date.getDate();
 						$scope.thief.date.m = curr_date.getMonth() + 1;
 						$scope.thief.date.y = curr_date.getFullYear();
