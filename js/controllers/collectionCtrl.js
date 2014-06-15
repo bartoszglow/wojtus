@@ -21,6 +21,11 @@ app.controller('collectionCtrl', function ($scope) {
 		"film",
 		"game"
 	];
+	$scope.periods = [
+		"",
+		"film",
+		"game"
+	];
 	$scope.collection = [
 		{
 			"type"		: "book",
@@ -132,13 +137,21 @@ app.controller('collectionCtrl', function ($scope) {
 			if($scope.thief.subname) {
 				if($scope.thief.mail) {
 					if($scope.thief.phone) {
+    					var curr_date = new Date();
+						var return_date = new Date();
+    					$scope.thief.date = {};
+    					$scope.thief.date_return = {};
 						$scope.borrow = 0;
 						$scope.collection[index].borrowed = true;
-    					var curr_date = new Date();
-    					$scope.thief.date = {};
+						
 						$scope.thief.date.d = curr_date.getDate();
-						$scope.thief.date.m = curr_date.getMonth();
+						$scope.thief.date.m = curr_date.getMonth() + 1;
 						$scope.thief.date.y = curr_date.getFullYear();
+
+						return_date.setDate(curr_date.getDate() + $scope.thief.period);
+						$scope.thief.date_return.d = return_date.getDate();
+						$scope.thief.date_return.m = return_date.getMonth() + 1;
+						$scope.thief.date_return.y = return_date.getFullYear();
 						$scope.collection[index].thief = angular.copy($scope.thief);
 					}
 				}

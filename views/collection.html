@@ -34,11 +34,13 @@
 						<!-- IF ITEM IS BORROWED SHOW THIEF -->
 				        <tr ng-show="isChosen($index) && item.borrowed">
 				            <td colspan="4" ng-click="clickChoose($index)">
-				            	{{item.thief.name}}
-				            	{{item.thief.subname}} <br>
-				            	{{item.thief.mail}} <br>
-				            	{{item.thief.phone}} <br>
-				            	{{item.thief.date.d}}.{{item.thief.date.m}}.{{item.thief.date.y}} <br>
+				            	<div> {{item.thief.name}} {{item.thief.subname}} </div>
+				            	<div> {{item.thief.mail}} </div>
+				            	<div> {{item.thief.phone}} </div>
+				            	<div> from {{item.thief.date.d}}.{{item.thief.date.m}}.{{item.thief.date.y}} </div>
+				            	<div ng-show="item.thief.period"> 
+				            		to {{item.thief.date_return.d}}.{{item.thief.date_return.m}}.{{item.thief.date_return.y}} 
+				            	</div>
 				            </td>
 						</tr>
 
@@ -70,12 +72,19 @@
 							        		<br>
 							        Phone:	<input 	required 
 						          					name="phone"	
-							        				type="text"
+							        				type="number"
 							        				class="form-control" 
 							        				ng-model="thief.phone"
 						          					ng-class="myForm.phone.$valid ? 'correct' : 'wrong'">
 							        		<br>
-
+							        Period (days):	
+							        		<input 	required 
+						          					name="period"	
+							        				type="number"
+							        				class="form-control" 
+							        				ng-model="thief.period"
+						          					ng-class="myForm.period.$valid ? 'correct' : 'wrong'">
+							        		<br>
 							        <button class="btn btn-default btn-xs"
 							          		ng-click="clickAccept($index)" 
 							          		ng-show="borrow">
