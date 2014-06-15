@@ -35,11 +35,11 @@
 				        <tr ng-show="isChosen($index) && item.borrowed">
 				            <td colspan="4" ng-click="clickChoose($index)">
 				            	<div> {{item.thief.name}} {{item.thief.subname}} </div>
-				            	<div> {{item.thief.mail}} </div>
-				            	<div> {{item.thief.phone}} </div>
-				            	<div> from {{item.thief.date.d}}.{{item.thief.date.m}}.{{item.thief.date.y}} </div>
-				            	<div ng-show="item.thief.period"> 
-				            		to {{item.thief.date_return.d}}.{{item.thief.date_return.m}}.{{item.thief.date_return.y}} 
+				            	<div> {{item.thief.mail}} {{item.thief.phone}} </div>
+				            	<div> from {{item.thief.date.d}}.{{item.thief.date.m}}.{{item.thief.date.y}}
+					            	<span ng-show="item.thief.period"> 
+					            		to {{item.thief.date_return.d}}.{{item.thief.date_return.m}}.{{item.thief.date_return.y}} 
+					            	</span>
 				            	</div>
 				            </td>
 						</tr>
