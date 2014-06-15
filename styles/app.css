@@ -294,3 +294,7 @@ bt {
 .btn-success:hover {
 	background-color: #16a085;
 }
+
+.small {
+	font-size: 14px;
+}

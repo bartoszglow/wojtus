@@ -34,11 +34,24 @@
 						<!-- IF ITEM IS BORROWED SHOW THIEF -->
 				        <tr ng-show="isChosen($index) && item.borrowed">
 				            <td colspan="4" ng-click="clickChoose($index)">
-				            	<div> {{item.thief.name}} {{item.thief.subname}} </div>
-				            	<div> {{item.thief.mail}} {{item.thief.phone}} </div>
-				            	<div> from {{item.thief.date.d}}.{{item.thief.date.m}}.{{item.thief.date.y}}
+				            	<div> 
+									<span class="glyphicon glyphicon-user small"></span>
+									{{item.thief.name}} {{item.thief.subname}} 
+								</div>
+				            	<div> 
+									<span class="glyphicon glyphicon-envelope small"></span> 
+									{{item.thief.mail}}
+								</div>
+								<div>
+									<span class="glyphicon glyphicon-earphone small"></span> 
+									{{item.thief.phone}} 
+								</div>
+				            	<div> 
+									<span class="glyphicon glyphicon-calendar small"></span> 
+				            		{{item.thief.date.d}}.{{item.thief.date.m}}.{{item.thief.date.y}}
 					            	<span ng-show="item.thief.period"> 
-					            		to {{item.thief.date_return.d}}.{{item.thief.date_return.m}}.{{item.thief.date_return.y}} 
+										<span class="glyphicon glyphicon-arrow-right small"></span> 
+					            		{{item.thief.date_return.d}}.{{item.thief.date_return.m}}.{{item.thief.date_return.y}} 
 					            	</span>
 				            	</div>
 				            </td>
@@ -87,7 +100,7 @@
 							        		<br>
 							        <button class="btn btn-default btn-xs"
 							          		ng-click="clickAccept($index)" 
-							          		ng-show="borrow">
+							          		ng-show="borrow && myForm.$valid">
 										<span class="glyphicon glyphicon-ok"></span>
 									</button>
 							        <button class="btn btn-default btn-xs"
